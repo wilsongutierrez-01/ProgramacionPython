@@ -1,0 +1,48 @@
+{% include 'header.html' %}
+
+
+<div class="tittle">
+    Intentemos predecir...
+</div>
+
+<br>
+
+    <form method="POST" action="{{url_for('guardarData')}}">
+        <div class="container">
+            <div class="border">
+                <div class="value">
+                    <p>Elige activos:</p> 
+                </div>
+                <div>
+                    <span class="info">Simbolo 1:</span>
+                    <input name="txtSimbolo1" type="text" placeholder="example: 'CL=F'">
+                </div>
+                <br>
+                <div>
+                    <sapn class="info">Simbolo 2:</sapn>
+                    <input name="txtSimbolo2" type="text" placeholder="example: 'GC=F'">
+                </div>
+                <div class="value">
+                    <span>Elige fechas:</span>
+                </div>
+                <div>
+                    <span class="info">Fecha apertura:</span>
+                    <input name="txtFechaApertura" type="date" placeholder="example: '2020-05-10'">
+                    <br>
+                    <span class="info">Fecha cierre:</span>
+                    <input name="txtFechaCierre" type="date" placeholder="example: '2020-05-10'">
+                </div>
+                <br>
+                <div class="buttonGuardar">
+                    <button class="btnGuardar" type="submit">Guardar...</button>
+                </div>
+
+            </div>    
+        </div>
+    </form>
+
+
+
+
+
+{% include 'footer.html' %}
