@@ -24,9 +24,13 @@ def saveProducto(product):
 def delete():
     collection.delete_many({})\
 
-def show():
+def show(nombreValor):
     data = collection.find({})
-    return data
+    datos = []
+    cursor = data
+    for i in cursor:
+        datos.append(i[nombreValor])
+    return datos
 
 def showby(value,val):
     data = collection.find_one({value:val})
@@ -44,7 +48,13 @@ def getData():
     # data = [name,cantidad,precio]
     return data
 
-
+def arrayDatos(nombreValor, cursorDatos):
+    datos = []
+    cursor = cursorDatos
+    for i in cursor:
+        datos.append(i[nombreValor])
+    
+    return datos
 
 def updateOne(value, val):
     collection.update_one(value,val)

@@ -1,11 +1,108 @@
 {% include 'header.html' %}
-aqui se mostrara como se busca cada valor, se tomara de la base de datos
+
+<div class="tittleSimbolo">
+    <span>Simbolos y sus significados</span>
+</div>
 <br>
-estara dividido en categorias:
-<br>
-divisas
-<br>
-indices
-<br>
-futuros
+
+<div class="flexbox">
+    <div class="box-1">
+        <span class="txtSimbolo">Divisas</span>
+    </div>
+    <div class="box-2">
+        <button on="tap:desplegableDivisa.show" class="btnMostrar">Mostrar</button>
+    </div>
+    <div class="box-3">
+        <button on="tap:desplegableDivisa.hide" class="btnOcultar">Ocultar</button>
+    </div>
+</div>
+<div id="desplegableDivisa" hidden>
+    <table class="tableSize">
+        <thead class="tablasHead">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Simbolo</th>
+            <th scope="col">Significado</th>
+        </tr>
+        </thead>
+        <tbody class="tablasBody">
+            {% for i in range(0, len) %}
+                <tr>
+                    <td>{{i}}</td>
+                    <td>{{divisaSimbolos[i]}}</td>
+                    <td>{{divisaNombres[i]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br><br>
+<div class="flexbox">
+    <div class="box-1">
+        <span class="txtSimbolo">Futuros</span>
+    </div>
+    <div class="box-2">
+        <button on="tap:desplegableFuturo.show" class="btnMostrar">Mostrar</button>
+    </div>
+    <div class="box-3">
+        <button on="tap:desplegableFuturo.hide" class="btnOcultar">Ocultar</button>
+    </div>
+</div>
+<div id="desplegableFuturo" hidden>
+    <table class="tableSize">
+        <thead class="tablasHead">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Simbolo</th>
+            <th scope="col">Significado</th>
+        </tr>
+        </thead>
+        <tbody class="tablasBody">
+            {% for i in range(0, lenfuturo) %}
+                <tr>
+                    <td>{{i}}</td>
+                    <td>{{futuroSimbolos[i]}}</td>
+                    <td>{{futuroNombres[i]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br><br>
+<div class="flexbox">
+    <div class="box-1">
+        <span class="txtSimbolo">Indices</span>
+    </div>
+    <div class="box-2">
+        <button on="tap:desplegableIndice.show" class="btnMostrar">Mostrar</button>
+    </div>
+    <div class="box-3">
+        <button on="tap:desplegableIndice.hide" class="btnOcultar">Ocultar</button>
+    </div>
+</div>
+<div id="desplegableIndice"  hidden>
+    <table class="tableSize">
+        <thead class="tablasHead">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Simbolo</th>
+            <th scope="col">Significado</th>
+        </tr>
+        </thead>
+        <tbody class="tablasBody">
+            {% for i in range(0, lenindice) %}
+                <tr>
+                    <td>{{i}}</td>
+                    <td>{{indiceSimbolos[i]}}</td>
+                    <td>{{indiceNombres[i]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
 {% include 'footer.html' %}
