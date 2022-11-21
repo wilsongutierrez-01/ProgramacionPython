@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page with Background Image Example</title>
+  <link rel="stylesheet" href="/static/styleslogin.css">
+
+</head>
+<body>
+
+<!-- partial:index.partial.html -->
+<div id="bg"></div>
+
+<form id="crearUsuario" method="post" action="{{url_for('crearUsuario')}}">
+    {% with messages= get_flashed_messages()  %}
+    {% if messages %}
+        <div class="alert alert-danger" role="alert" style="color:rgb(253, 253, 253); background-color:rgb(228, 18, 18); align-self: 0 auto;">
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}    
+        </div>
+    {% endif %}
+    {% endwith   %}
+    <br>
+<div class="form-field2">
+    <input type="text" placeholder="Nombre" name="txtNombre" id="txtNombre" required/>
+</div>
+<div class="form-field2">
+    <input type="text" placeholder="Apellido" name="txtApellido" id="txtApellido" required/>
+</div>
+<div class="form-field2">
+    <input type="email" placeholder="Correo" name="txtCorreo" id="txtCorreo" required/>
+</div>
+
+<div class="form-field2">
+    <input type="password" placeholder="Contraseña" name="txtContra" id="txtContra" required/>                         
+</div>
+
+    <div class="form-field2">
+        <input type="password" placeholder="Confirmar contraseña" name="txtConfirContra" id="txtConfirContra" required/>
+    </div>
+
+<div class="form-field2">
+    <button class="btn1" type="submit">Crear Cuenta</button>
+</div>
+</form>
+<!-- partial -->
+  
+</body>
+</html>

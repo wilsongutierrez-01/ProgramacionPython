@@ -17,7 +17,7 @@ def connection (dbs,collection_name):
     
     
 
-def saveProducto(product):
+def save(product):
     collection.insert_one(product)
     
     
@@ -32,7 +32,7 @@ def show(nombreValor):
         datos.append(i[nombreValor])
     return datos
 
-def showby(value,val):
+def showUser(value,val):
     data = collection.find_one({value:val})
     return data
 
