@@ -1,5 +1,57 @@
 {% include 'header.html' %}
-        {{Petroleo}}
 
+<!-- {% if sim1 %}:
+        {% if sim2 %}:
+        Ahora solo veriquemos los datos para hacer tus predicciones
+        <div>
+                <span>Has elegio como tu base: {{sim1}}  </span>
+                <span>Has elegido como tu prediccion: {{sim2}}</span>
+                <span> </span>
+        </div>
+
+        Ahora elige el precio de comparacion: por ejempl0 50
+
+        <div>
+                Nuestra IA te dire que valor alcanza el {{sim2}} cuando el {{sim1}}
+                alcanza ese precio.
+        </div>
+
+        <form method="post" action="{{url_for('predecir')}}">
+                <input placeholder="Ingrese un valor">
+                <button type="sumit">Realizar prediccion</button>
+        </form>
+        {% endif %}
+{% endif %} -->
+
+{% if sim1 and sim2 %}
+        <div>
+        <span>Has elegio como tu base: {{sim1}}  </span>
+        <span>Has elegido como tu prediccion: {{sim2}}</span>
+        <span> </span>
+        </div>
+
+        Ahora elige el precio de comparacion: por ejempl0 50
+
+        <div>
+                Nuestra IA te dire que valor alcanza el {{sim2}} cuando el {{sim1}}
+                alcanza ese precio.
+        </div>
+
+        <form method="post" action="{{url_for('predecir')}}">
+                <input placeholder="Ingrese un valor">
+                <button type="sumit">Realizar prediccion</button>
+        </form>
+
+        
+{% else %}
+        Por favor ingresa los parametros desde Home
+        
+        
+{% endif %}
+
+                
+
+
+        
 
 {% include 'footer.html' %}

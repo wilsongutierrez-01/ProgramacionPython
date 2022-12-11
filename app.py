@@ -26,6 +26,14 @@ def inicio():
 def crearCuenta():
     return render_template('pages/crearcuenta.html')
 
+@app.route('/perfil')
+def perfil():
+    return render_template('pages/perfil.html')
+
+@app.route('/predicciones')
+def predicciones():
+    return render_template('pages/predict.html')
+
 #Para crear una nueva cuenta
 @app.route('/crearUsuario', methods=['GET', 'POST'])
 def crearUsuario():
@@ -50,8 +58,11 @@ def crearUsuario():
         mongoDB.save(user)
         flash('Usuario creado')
         return index()
-    pass
+    return None
 
+@app.route('/about')
+def about():
+    return render_template('pages/about.html')
 #Para iniciar sesion
 @app.route('/iniciarSesion', methods=['GET', 'POST'])
 def iniciarSesion():
@@ -70,7 +81,6 @@ def iniciarSesion():
             flash('Contraseña incorrecta')
             return index()
         else:
-            flash('Bienvenido a Vision')
             return inicio()
     else:
         flash('el usuario no existe')
@@ -79,14 +89,19 @@ def iniciarSesion():
     pass
 @app.route('/guardarData', methods=['GET', 'POST'])
 def guardarData():
+    global sim1, sim2, apertura, cierre
     sim1 = str(request.form['txtSimbolo1'])
     sim2 = str(request.form['txtSimbolo2'])
     apertura = str(request.form['txtFechaApertura'])
     cierre = str(request.form['txtFechaCierre'])
-    
     prediccion = aiPredict.predecir(sim1,sim2,apertura,cierre,50)
-    return render_template('pages/predict.html', Petroleo=prediccion)
+    
+    return render_template('pages/predict.html', Petroleo=prediccion, sim1=sim1, sim2=sim2)
 
+#Con este metodo hacemos las predicciones
+@app.route('/predecir')
+def predecir():
+    pass
 # Mostrar simbolos
 @app.route('/simbolos')
 def simbolos():
@@ -100,9 +115,7 @@ def simbolos():
     
     mongoDB.connection(db,'indices')
     indiceSimboloDB = mongoDB.show('Símbolo')
-    indiceNombreDB = mongoDB.show('Nombre')
-    
-    
+    indiceNombreDB = mongoDB.show('Nombre')   
     
     return render_template('pages/simbolos.html', divisaNombres=divisasNombresDB, len = len(divisaSimboloDB), divisaSimbolos=divisaSimboloDB,
                            futuroNombres=futuroNombreDB, lenfuturo = len(futuroNombreDB), futuroSimbolos=futuroSimboloDB,

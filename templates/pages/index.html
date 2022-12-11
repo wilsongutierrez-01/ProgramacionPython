@@ -1,34 +1,40 @@
 {% include 'header.html' %}
 
-
 <div class="tittle">
-    Intentemos predecir...
+    Elige los simbolos a comparar
 </div>
 
 <br>
 
+<div>
+    <p>Para poder predecir precios de los activos, primero debemos recolectar algunos datos:</p>
+</div>
+
     <form method="POST" action="{{url_for('guardarData')}}">
-        <div class="container">
-            <div class="border">
-                <div class="value">
+
+                <!-- <div class="value">
                     <p>Elige activos:</p> 
-                </div>
+                </div> -->
                 <div>
+                    Por favor elige tu tu activo base:
                     <span class="info">Simbolo 1:</span>
                     <input name="txtSimbolo1" type="text" placeholder="example: 'CL=F'">
                 </div>
                 <br>
                 <div>
+                    por favor elige el activo que quieres predecir:
                     <sapn class="info">Simbolo 2:</sapn>
                     <input name="txtSimbolo2" type="text" placeholder="example: 'GC=F'">
                 </div>
                 <div class="value">
-                    <span>Elige fechas:</span>
+                    <span>Estamos a un paso de terminar</span>
                 </div>
                 <div>
+                    Ahora elige las fechas desde donde quieres empezar a analizar
                     <span class="info">Fecha apertura:</span>
                     <input name="txtFechaApertura" type="date" placeholder="example: '2020-05-10'">
                     <br>
+                    Para terminar, elige la fecha de cierre:
                     <span class="info">Fecha cierre:</span>
                     <input name="txtFechaCierre" type="date" placeholder="example: '2020-05-10'">
                 </div>
@@ -37,8 +43,6 @@
                     <button class="btnGuardar" type="submit">Guardar...</button>
                 </div>
 
-            </div>    
-        </div>
     </form>
 
 

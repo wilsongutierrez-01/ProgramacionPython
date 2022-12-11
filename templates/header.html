@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/static/styles.css" rel="stylesheet">
+        
 
         <script async src="https://cdn.ampproject.org/v0.js"></script>
         <link rel="canonical" href="https://codepen.io/difros/pen/zYxJRyM">
@@ -26,25 +27,25 @@
         <![endif]-->
         
 
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-xl bg-dark" >
             <div class="container-fluid">
-            <a class="navbar-brand" href="#">Vision</a>
+            <a class="navbar-brand" href="{{url_for('perfil')}}" style="color: white;">Vision</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{{url_for('inicio')}}">Home</a>
-                <a class="nav-link" href="{{url_for('simbolos')}}">Simbolos</a>
-                <a class="nav-link" href="#">Pricing</a>
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link active" aria-current="page" href="{{url_for('inicio')}}" style="color: white;">Home</a>
+                <a class="nav-link" href="{{url_for('simbolos')}}" style="color: white;">Simbolos</a>
+                <a class="nav-link" href="{{url_for('predicciones')}}" style="color: white;">Predicciones</a>
+                <a class="nav-link" href="{{url_for('about')}}" style="color: white;">About</a>
                 </div>
             </div>
             </div>
         </nav>
         
     </head>
-    <body class="bodyStyle">
+    <body>
         {% with messages= get_flashed_messages()  %}
         {% if messages %}
             <div class="alert alert-danger" role="alert">
