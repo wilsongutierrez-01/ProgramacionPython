@@ -9,6 +9,8 @@ import mongoDB
 
 db = 'visionDB'
 
+sim1,sim2,apertura,cierre = '','','',''
+
 app = Flask(__name__)
 app.secret_key = 'darkCode'
 
@@ -103,19 +105,23 @@ def iniciarSesion():
     pass
 @app.route('/guardarData', methods=['GET', 'POST'])
 def guardarData():
-    global sim1, sim2, apertura, cierre
+    global sim1,sim2,apertura,cierre
     sim1 = str(request.form['txtSimbolo1'])
     sim2 = str(request.form['txtSimbolo2'])
     apertura = str(request.form['txtFechaApertura'])
     cierre = str(request.form['txtFechaCierre'])
-    prediccion = aiPredict.predecir(sim1,sim2,apertura,cierre,50)
     
-    return render_template('pages/predict.html', Petroleo=prediccion, sim1=sim1, sim2=sim2)
+    #Le pasamos los datos a nuestra AI
+    aiPredict.datos(sim1,sim2,apertura,cierre)
+    
+    return render_template('pages/predict.html', sim1=sim1, sim2=sim2)
 
 #Con este metodo hacemos las predicciones
-@app.route('/predecir')
+@app.route('/predecir', methods=['GET','POST'])
 def predecir():
-    pass
+    precio = float(request.form['precio']) 
+    predict = aiPredict.predecir(precio)
+    return render_template('pages/predict.html', precio = predict, base = precio, val1=sim1, val2=sim2)
 # Mostrar simbolos
 @app.route('/simbolos')
 def simbolos():

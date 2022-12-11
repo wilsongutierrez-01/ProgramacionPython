@@ -113,6 +113,7 @@
 
 body{
 	background-image: url();
+	font-family: 'Times New Roman', Times, serif;
 }
 
 .btnMostrar{
@@ -306,4 +307,31 @@ body{
 	border-radius: 4px;
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 	font-size: 17px;
+}
+
+.flexbox .pmt{
+	font-weight: 200;
+	font-size: 40px;
+	font-family: 'Times New Roman', Times, serif;
+	background-image: url('/static/images/tuerca.png');
+}
+
+
+@keyframes mi-animacion-tuerca {
+	0% {
+	transform: rotate(0deg);
+	}
+	100% {
+	transform: rotate(360deg);
+	}
+}
+
+  /* Aplicar la animación a un elemento */
+.flexbox .tuerca {
+	animation: mi-animacion-tuerca 2s linear infinite;
+	background-image: url('/static/images/tuerca.png');
+}
+
+.flexbox .tuercas{
+	background-image: url('/static/images/tuerca.png');
 }

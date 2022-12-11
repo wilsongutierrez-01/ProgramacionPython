@@ -38,13 +38,47 @@
         </div>
 
         <form method="post" action="{{url_for('predecir')}}">
-                <input placeholder="Ingrese un valor">
+                <input name="precio" id="precio" placeholder="Ingrese un valor">
+                <button type="submit">Realizar prediccion</button>
+        </form>
+
+
+        
+{% elif precio and val2 and val1 %}
+        <div>
+        <span>Has elegio como tu base: {{val1}}  </span>
+        <span>Has elegido como tu prediccion: {{sim2}}</span>
+        <span> </span>
+        </div>
+
+        Ahora elige el precio de comparacion: por ejempl0 50
+
+        <div>
+                Nuestra IA te dire que valor alcanza el {{val2}} cuando el {{val1}}
+                alcanza ese precio.
+        </div>
+
+        <form method="post" action="{{url_for('predecir')}}">
+                <input name="precio" placeholder="Ingrese un valor">
                 <button type="sumit">Realizar prediccion</button>
         </form>
 
-        
+        <div>
+                Cuando el precio de {{val1}} es de {{base}}, entonces el precio de {{val2}}
+                tiende a ser {{precio}}
+        </div>
+
 {% else %}
-        Por favor ingresa los parametros desde Home
+
+        <div class="flexbox">
+                <span class="pmt">Por favor ingrese los parametros desde Home</span>
+
+                <div class="tuercas">
+                        
+                </div>
+        </div>
+
+      
         
         
 {% endif %}
