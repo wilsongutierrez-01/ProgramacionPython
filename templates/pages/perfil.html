@@ -2,15 +2,15 @@
 <div class="perfil">
     <div class="name">
         <span >Nombre de usuario:</span>
-        <input name="userName" readonly="true">
+        <input name="userName" readonly="true" value="{{username}}">
     </div>
     <br>
     <div class="lastname">
     <span>Correo:</span>
-    <input name="userMail" readonly="true">
+    <input name="userMail" readonly="true" value="{{correouser}}">
     </div>
     <br>
-    <button class="btnSalir" type="submit">Cerrar sesion</button>
+    <a class="btnSalir" style="text-decoration:none" href="{{url_for('salirSesion')}}">Cerrar sesion</a>
 </div>
 
 

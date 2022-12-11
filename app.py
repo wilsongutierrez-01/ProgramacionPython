@@ -28,7 +28,13 @@ def crearCuenta():
 
 @app.route('/perfil')
 def perfil():
-    return render_template('pages/perfil.html')
+    mongoDB.connection(db,'Usuarios')
+    correoDB = mongoDB.showUser('correo',correo)
+    usernameDB = mongoDB.showUser('correo',correo)
+    correouser = correoDB['correo']
+    username = usernameDB['nombre']
+    
+    return render_template('pages/perfil.html', correouser = correouser, username = username)
 
 @app.route('/predicciones')
 def predicciones():
@@ -63,9 +69,17 @@ def crearUsuario():
 @app.route('/about')
 def about():
     return render_template('pages/about.html')
+
+#Cerramos sesion:
+@app.route('/salirSesion')
+def salirSesion():
+    return index()
+
+
 #Para iniciar sesion
 @app.route('/iniciarSesion', methods=['GET', 'POST'])
 def iniciarSesion():
+    global correo
     correo = request.form['txtCorreo']
     contra = request.form['txtContra']
     mongoDB.connection('visionDB','Usuarios')
