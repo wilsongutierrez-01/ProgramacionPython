@@ -9,40 +9,43 @@
 <div>
     <p>Para poder predecir precios de los activos, primero debemos recolectar algunos datos:</p>
 </div>
-
+<br><br>
     <form method="POST" action="{{url_for('guardarData')}}">
 
                 <!-- <div class="value">
                     <p>Elige activos:</p> 
                 </div> -->
+            <div  class="grid">
                 <div>
-                    Por favor elige tu tu activo base:
+                    <span>Por favor elige tu tu activo base:</span>
                     <span class="info">Simbolo 1:</span>
                     <input name="txtSimbolo1" type="text" placeholder="example: 'CL=F'">
                 </div>
                 <br>
                 <div>
-                    por favor elige el activo que quieres predecir:
+                    <span>por favor elige el activo que quieres predecir:</span>
                     <sapn class="info">Simbolo 2:</sapn>
                     <input name="txtSimbolo2" type="text" placeholder="example: 'GC=F'">
                 </div>
+                <br>
                 <div class="value">
-                    <span>Estamos a un paso de terminar</span>
+                    <span class="info">Estamos a un paso de terminar</span>
                 </div>
+                <br>
                 <div>
-                    Ahora elige las fechas desde donde quieres empezar a analizar
+                    <span>Ahora elige las fechas desde donde quieres empezar a analizar</span>
                     <span class="info">Fecha apertura:</span>
                     <input name="txtFechaApertura" type="date" placeholder="example: '2020-05-10'">
                     <br>
-                    Para terminar, elige la fecha de cierre:
+                    <span>Para terminar, elige la fecha de cierre:</span>
                     <span class="info">Fecha cierre:</span>
                     <input name="txtFechaCierre" type="date" placeholder="example: '2020-05-10'">
                 </div>
-                <br>
                 <div class="buttonGuardar">
                     <button class="btnGuardar" type="submit">Guardar...</button>
                 </div>
-
+            </div>
+                
     </form>
 
 
