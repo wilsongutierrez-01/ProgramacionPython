@@ -110,9 +110,16 @@
 		transform: translateY(0px);
 	}
 }
-
+.tittle{
+	background-image:url('/static/images/R.jpg');
+	color: rgb(255, 255, 255);
+	
+}
 .body{
-	background-color: rgba(0, 0, 0, 0.199);
+	/* background-color: rgba(0, 0, 0, 0.199); */
+	background-image: url('/static/images/fondos_2.jpg') ;
+	/* margin: 0	; */
+	padding: 5px 30px;
 }
 
 .btnMostrar{
